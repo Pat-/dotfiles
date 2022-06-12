@@ -18,7 +18,7 @@
 
 [colors]
 
-background = #8F121110
+background = #CC121110
 foreground = #f0dfc7
 color0 = #121110
 color1 = #AE8974
@@ -52,11 +52,11 @@ font-2=IPAGothic:style=Regular:size=12
 
 offset-y = 10
 padding = 2
-border-size = 0
+border-size = 1
 border-color = ${colors.foreground}
 
 height = 30
-radius = 10
+;radius = 10
 ;Works very well with a radius like this! Put it on every bar.
 
 background = ${colors.background}
@@ -68,13 +68,13 @@ wm-restack = bspwm
 [bar/main]
 inherit = bar/base
 enable-ipc = true
-width = 30%
+width = 60%
 
-offset-x = 37%
+offset-x = 20%
 
-modules-left = bspwm sep
+modules-left = bspwm sep xwindow
 modules-center = spotify
-modules-right = sep pulseaudio sep time sep wlan
+modules-right = pulseaudio time wlan
 
 
 ;                      _       _           
@@ -85,8 +85,11 @@ modules-right = sep pulseaudio sep time sep wlan
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:33:...%
-label-margin = 2
+label = %title:0:100:...%
+label-overline = ${colors.foreground}
+label-empty = Empty
+label-empty-foreground = ${colors.grey}
+format-margin = 1
 
 [module/sep]
 type = custom/text
@@ -113,9 +116,10 @@ label-empty-padding = 1
 type = internal/date
 interval = 10
 format-margin = 2
+format =  <label>
 
 time = "%I:%M %p"
-date = " %m/%d/%Y"
+date = "%m/%d/%Y"
 
 label-foreground = ${colors.color6}
 
@@ -135,7 +139,9 @@ ramp-volume-0 = ""
 ramp-volume-1 = ""
 ramp-volume-2 = ""
 
-label-muted = "  muted"   
+format-muted =  <label-muted>
+label-muted = "muted"
+label-muted-foreground = ${colors.color6} 
 label-muted-padding = 0
 
 click-right = pavucontrol
@@ -144,12 +150,12 @@ click-right = pavucontrol
 
 [module/spotify]
 type = custom/script
-exec = playerctl -p spotify metadata --format '{{artist}} - {{title}}'
+exec = playerctl -p spotify metadata --format 'Now Playing: {{artist}} - {{title}}'
 exec-if = "pgrep spotify"
 format-padding = 1
 tail = true
 interval = 1
-label-maxlen = 40
+format =  <label>
 label-foreground = ${colors.color6}
 
 [module/wlan]
