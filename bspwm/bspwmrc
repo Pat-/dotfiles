@@ -1,12 +1,19 @@
 #! /bin/sh
 
+export _JAVA_AWT_WM_NONREPARENTING=1
+
 pgrep -x sxhkd > /dev/null || sxhkd &
 nitrogen --restore &
 picom -b &
-polybar -rq main &
+#polybar -rq main &
+polybar -rq left &
+polybar -rq middle &
+polybar -rq right &
+wal -R &
+
 xsetroot -cursor_name left_ptr &
 
-bspc monitor -d Web Term Steam Spotify Discord
+bspc monitor -d     
 
 # source the colors.
 . "${HOME}/.cache/wal/colors.sh"
@@ -24,6 +31,7 @@ bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
-bspc rule -a Steam state=floating
-bspc rule -a Spotify state=floating
-bspc rule -a Discord state=floating
+bspc rule -a Steam state=floating desktop=^3 follow=off
+bspc rule -a '*:discord' state=floating desktop=^5 follow=off
+bspc rule -a net-runelite-client-RuneLite state=floating
+bspc rule -a com-atlauncher-App state=floating

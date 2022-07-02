@@ -18,25 +18,25 @@
 
 [colors]
 
-background = #CC121110
-foreground = #f0dfc7
-color0 = #121110
-color1 = #AE8974
-color2 = #CE9D6A
-color3 = #807E81
-color4 = #A6958E
-color5 = #D2A98F
-color6 = #D7AB8F
-color7 = #f0dfc7
-color8 = #a89c8b
-color9 = #AE8974
-color10 = #CE9D6A
-color11 = #807E81
-color12 = #A6958E
-color13 = #D2A98F
-color14 = #D7AB8F
-color15 = #f0dfc7
-highlight = #f0dfc7
+background = ${xrdb:color0:#222}
+foreground = ${xrdb:color1:#222}
+color0 = ${xrdb:color0:#222}
+color1 = ${xrdb:color1:#222}
+color2 = ${xrdb:color2:#222}
+color3 = ${xrdb:color3:#222}
+color4 = ${xrdb:color4:#222}
+color5 = ${xrdb:color5:#222}
+color6 = ${xrdb:color6:#222}
+color7 = ${xrdb:color7:#222}
+color8 = ${xrdb:color8:#222}
+color9 = ${xrdb:color9:#222}
+color10 = ${xrdb:color10:#222}
+color11 = ${xrdb:color11:#222}
+color12 = ${xrdb:color12:#222}
+color13 = ${xrdb:color13:#222}
+color14 = ${xrdb:color14:#222}
+color15 = ${xrdb:color15:#222}
+highlight = ${xrdb:color15:#222}
 
 ;  _                    
 ; | |__   __ _ _ __ ___ 
@@ -47,7 +47,7 @@ highlight = #f0dfc7
 [bar/base]
 enable-ipc = true
 font-0=DejavuSans:style=Regular=12;2
-font-1=FontAwesome6Free:style=Solid:Regular=12;2
+font-1=JetBrainsMono Nerd Font:Size=12;2
 font-2=IPAGothic:style=Regular:size=12
 
 offset-y = 10
@@ -64,6 +64,7 @@ foreground = ${colors.foreground}
 
 override-redirect=false
 wm-restack = bspwm
+bottom=false
 
 [bar/main]
 inherit = bar/base
@@ -76,6 +77,33 @@ modules-left = bspwm sep xwindow
 modules-center = spotify
 modules-right = pulseaudio time wlan
 
+[bar/left]
+inherit = bar/base
+enable-ipc = true
+width = 10.5%
+
+modules-left = bspwm sep xwindow
+
+offset-x = 0.7%
+
+[bar/middle]
+inherit = bar/base
+enable-ipc = true
+width = 13%
+
+modules-center = spotify
+
+offset-x = 44%
+
+
+[bar/right]
+inherit = bar/base
+enable-ipc = true
+width = 11%
+
+modules-right = pulseaudio date time wlan
+
+offset-x = 11.5%
 
 ;                      _       _           
 ;  _ __ ___   ___   __| |_   _| | ___  ___ 
@@ -90,6 +118,7 @@ label-overline = ${colors.foreground}
 label-empty = Empty
 label-empty-foreground = ${colors.grey}
 format-margin = 1
+label-maxlen = 30
 
 [module/sep]
 type = custom/text
@@ -112,24 +141,37 @@ label-empty = %name%
 label-empty-foreground = ${colors.color12}
 label-empty-padding = 1
 
-[module/time]
+[module/date]
 type = internal/date
 interval = 10
-format-margin = 2
-format =  <label>
+format-margin = 1
+format =   <label>
 
 time = "%I:%M %p"
 date = "%m/%d/%Y"
 
 label-foreground = ${colors.color6}
 
-label = %date%, %time%
+label = %date%,
+
+[module/time]
+type = internal/date
+interval = 10
+format-margin = 0
+format =    <label>
+
+time = "%I:%M %p"
+date = "%m/%d/%Y"
+
+label-foreground = ${colors.color6}
+
+label = %time%
 
 [module/pulseaudio]
 type = internal/pulseaudio
 
 format-volume-margin = 1
-format-volume = <ramp-volume> <label-volume>
+format-volume = <ramp-volume>  <label-volume>
 label-volume-foreground = ${colors.color6}
 label-volume = %percentage:3:3%%
 use-ui-max = false
@@ -155,25 +197,26 @@ exec-if = "pgrep spotify"
 format-padding = 1
 tail = true
 interval = 1
-format =  <label>
+format =   <label>
 label-foreground = ${colors.color6}
+label-maxlen = 50
 
 [module/wlan]
 type = internal/network
 interface = wlo1
 interval = 3.0
 
-format-connected =  <label-connected>
+format-connected =   <label-connected>
 label-connected-foreground = ${colors.color6}
 format-connected-underline = #9f78e1
 label-connected = %essid%
 format-connected-margin = 1
 
-format-disconnected =
-;format-disconnected = <label-disconnected>
+;format-disconnected =
+format-disconnected = <label-disconnected>
 ;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
+label-disconnected = %ifname% disconnected
+label-disconnected-foreground = ${colors.color12}
 
 [settings]
 screenchange-reload = true
