@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openbox_menu>
+<!-- Note: for localization support of menu items "client-menu" has to be removed here -->
+<menu id="apps-menu" label="  Apps">
+     <item label="  Spotify">
+      <action name="Execute" command="spotify-launcher" />
+    </item>
+
+    <item label="  Discord">
+      <action name="Execute" command="discord" />
+    </item>
+
+    <item label="  Steam">
+      <action name="Execute" command="steam" />
+    </item>
+
+    <item label="  Font Map">
+      <action name="Execute" command="gucharmap" />
+    </item>
+
+    <item label="  Bolt Launcher">
+      <action name="Execute" command="bolt" />
+    </item>
+</menu>
+
+<menu id="screenshot-menu" label="  Screenshot">
+    <item label="  Now">
+      <action name="Execute" command="gscreenshot" />
+    </item>
+
+    <item label="  In 3">
+      <action name="Execute" command="gscreenshot -d 3" />
+    </item>
+
+    <item label="  In 5">
+      <action name="Execute" command="gscreenshot -d 5" />
+    </item>
+</menu>
+
+<menu id="power-menu" label="  Exit">
+    <item label="  Suspend">
+      <action name="Execute" command="systemctl suspend" />
+    </item>
+
+    <item label="  Reboot">
+      <action name="Execute" command="reboot" />
+    </item>
+
+    <item label="  Poweroff">
+      <action name="Execute" command="shutdown now" />
+    </item>
+
+    <item label="  Logout">
+      <action name="Exit" />
+    </item>
+</menu>
+
+<menu id="root-menu">
+  <!-- Make client-list-combined-menu a submenu of root-menu
+       You must supply a label or it will not appear in root-menu -->
+  <!--
+  <menu id="client-list-combined-menu" label="Running..." />
+  -->
+  <item label="  Search">
+    <action name="Execute" command="wofi --show drun" />
+  </item>
+
+  <item label="  Terminal">
+    <action name="Execute" command="alacritty" />
+  </item>
+
+  <item label="  Web Browser">
+    <action name="Execute" command="firefox" />
+  </item>
+
+  <item label="  File Manager">
+    <action name="Execute" command="nemo" />
+  </item>
+
+  <item label="  Code">
+    <action name="Execute" command="subl" />
+  </item>
+
+  <separator />
+
+  <menu id="apps-menu"/>
+
+  <separator />
+
+  <menu id="screenshot-menu"/>
+
+  <item label="  Wallpaper">
+    <action name="Execute" command="firefox" />
+  </item>
+
+  <separator />
+
+  <menu id="system-menu"/>
+  <menu id="power-menu"/>
+
+  <item label="Reconfigure">
+    <action name="Reconfigure" />
+  </item>
+</menu>
+
+</openbox_menu>

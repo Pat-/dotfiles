@@ -1,0 +1,4 @@
+waypaper --restore &
+waybar &
+nm-applet &
+lxsession &

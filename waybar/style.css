@@ -1,0 +1,103 @@
+/* -----------------------------------------------------------------------------
+ * Styles
+ * -------------------------------------------------------------------------- */
+
+/* COLORS */
+
+/* Nord */
+@define-color bg #191919;
+/*@define-color bg #353C4A;*/
+@define-color light #212121;
+/*@define-color dark @nord_dark_font;*/
+@define-color warning #965A5A;
+@define-color critical #AF8C69;
+@define-color mode #7D8C9B;
+@define-color workspacesfocused #965A5A;
+@define-color tray @workspacesfocused;
+@define-color sound #212121;
+@define-color network #212121;
+@define-color layout #212121;
+@define-color date #212121;
+@define-color time #212121;
+@define-color backlight #7D8C9B;
+@define-color nord_bg #191919;
+@define-color nord_bg_blue #212121;
+@define-color nord_light #212121;
+@define-color nord_light_font #D8DEE9;
+@define-color nord_dark_font #9B9B9B;
+
+/* Reset all styles */
+* {
+    border: none;
+    border-radius: 0px;
+    min-height: 0;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 12px;
+    font-weight: bold;
+    padding: 0;
+}
+
+/* The whole bar */
+window#waybar {
+    background: @bg;
+    color: @light;
+    border: 2px solid #191919;
+}
+
+/* Each module */
+#clock,
+#taskbar button,
+#custom-spotify,
+#tray,
+#pulseaudio,
+#custom-weather {
+    margin: 6px 6px 6px 0px;
+    padding: 2px 8px;
+}
+
+#taskbar {
+    padding: 0 6px;
+}
+
+#custom-spotify,
+#pulseaudio {
+    background: #212121;
+    color: #9B9B9B;
+}
+
+/* Each warning */
+#network.disconnected {
+    background: @warning;
+    color: @nord_dark_font;
+}
+
+#window {
+    margin-right: 40px;
+    margin-left: 40px;
+    font-weight: normal;
+}
+
+#clock {
+    background: @nord_bg_blue;
+    color: #9B9B9B;
+}
+#clock.date {
+    background: @date;
+}
+
+#clock.time {
+    background: @mode;
+}
+#tray {
+    background: #212121;
+}
+
+#taskbar button {
+    background: #212121;
+    color: #9B9B9B;
+}
+
+#custom-weather {
+  background: #212121;
+  color: #9B9B9B;
+}

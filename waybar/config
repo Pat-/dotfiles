@@ -1,0 +1,54 @@
+{
+    "layer": "top",
+    "position": "top",
+    "width": 3350,
+    "height": 34,
+    "margin-top": 8,
+    "margin-right": 8,
+    "margin-bottom": 0,
+    "margin-left": 8,
+    "modules-left": ["wlr/taskbar"],
+    "modules-center": [],
+    "modules-right": ["custom/spotify", "tray", "pulseaudio", "custom/weather", "clock"],
+
+    "clock": {
+        "format": "  {:%I:%M %p -   %a, %b %d %Y}",
+    },
+
+    "wlr/taskbar": {
+        "format": "{title:.24}",
+        "tooltip-format": "{title}",
+        "on-click": "minimize",
+        "on-click-right": "close",
+    },
+
+    "tray": {
+        "icon-size": 24,
+    },
+
+     "custom/spotify": {
+        "interval": 1,
+        "return-type": "json",
+        "exec": "~/.config/waybar/modules/spotify.sh",
+        "exec-if": "pgrep spotify",
+        "escape": true
+    },
+
+    "pulseaudio": {
+        "scroll-step": 5,
+        "max-volume": 100,
+        "format": "vol {volume}%",
+        "format-bluetooth": "vol {volume}%",
+        "nospacing": 1,
+        "on-click": "pwvucontrol",
+        "tooltip": false
+    },
+
+    "custom/weather": {
+        "format": "{}°C",
+        "tooltip": true,
+        "interval": 3600,
+        "exec": "wttrbar",
+        "return-type": "json"
+    },
+}

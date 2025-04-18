@@ -1,0 +1,131 @@
+
+[env]
+TERM = "xterm-256color"
+
+[window]
+dynamic_padding = false
+dynamic_title   = true
+opacity         = 0.8
+title           = "Alacritty"
+
+[window.dimensions]
+columns = 0
+lines   = 0
+
+[window.padding]
+x = 12
+y = 12
+
+[scrolling]
+history = 12000
+
+[font]
+builtin_box_drawing = false
+size                = 12
+
+[font.bold]
+family = "Fantasque Sans Mono"
+style  = "Bold"
+
+[font.bold_italic]
+family = "Fantasque Sans Mono"
+style  = "Bold Italic"
+
+[font.glyph_offset]
+x = 0
+y = 0
+
+[font.italic]
+family = "Fantasque Sans Mono"
+style  = "Italic"
+
+[font.normal]
+family = "Fantasque Sans Mono"
+style  = "Regular"
+
+[font.offset]
+x = 0
+y = 0
+
+[colors.primary]
+background = "#191919"
+foreground = "#9B9B9B"
+
+[colors.normal]
+black = "#191919"
+red = "#965A5A"
+green = "#828C69"
+yellow = "#AF8C69"
+blue = "#5F6E82"
+magenta = "#736473"
+cyan = "#7D8C9B"
+white = "#9B9B9B"
+
+[colors.bright]
+black = "#191919"
+red = "#965A5A"
+green = "#828C69"
+yellow = "#AF8C69"
+blue = "#5F6E82"
+magenta = "#736473"
+cyan = "#7D8C9B"
+white = "#9B9B9B"
+
+[bell]
+animation = "EaseOutExpo"
+color     = "#fb4934"
+command   = "None"
+duration  = 0
+
+[selection]
+save_to_clipboard     = false
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
+
+[cursor]
+unfocused_hollow = true
+vi_mode_style    = "None"
+
+[[keyboard.bindings]]
+action = "Paste"
+key    = "V"
+mods   = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "Copy"
+key    = "C"
+mods   = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "ScrollPageUp"
+key    = "PageUp"
+mods   = "Shift"
+
+[[keyboard.bindings]]
+action = "ScrollPageDown"
+key    = "PageDown"
+mods   = "Shift"
+
+[[keyboard.bindings]]
+action = "ScrollToTop"
+key    = "Home"
+mods   = "Shift"
+
+[[keyboard.bindings]]
+action = "ScrollToBottom"
+key    = "End"
+mods   = "Shift"
+
+[mouse]
+hide_when_typing = true
+
+[debug]
+highlight_damage   = false
+log_level          = "Warn"
+persistent_logging = false
+print_events       = false
+render_timer       = false
+
+[general]
+# alacritty.toml
+
+live_config_reload = true
